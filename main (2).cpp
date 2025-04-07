@@ -193,9 +193,11 @@ int main() {
             case 6: store.sortItems(); break;
             case 7: store.displayLowStock(); break;
             case 8: 
-                cout << "Returning to Menu...\n";
+                cout << "Exiting the program...\n";
                 break;
             default: cout << "Invalid choice!\n";
         }
-    } while (true);
+    } while (choice != 8);
+
+    return 0;
 }
