@@ -30,7 +30,7 @@ public:
              << setw(20) << name
              << setw(8) << quantity
              << "$" << right << setw(9) << fixed << setprecision(2) << price
-             << left << setw(15) << category
+             << "  " << left << setw(15) << category
              << "\n";
     }
 };
@@ -106,7 +106,15 @@ public:
             cout << "Inventory is empty.\n";
             return;
         }
-        cout << "\nID   Name                 Qty     Price     Category        \n";
+
+        cout << left << setw(5) << "ID"
+             << setw(20) << "Name"
+             << setw(8) << "Qty"
+             << setw(10) << "Price"
+             << setw(15) << "Category" << "\n";
+
+        cout << string(58, '-') << "\n";
+
         for (const auto &item : items) item.display();
     }
 
@@ -117,7 +125,7 @@ public:
         for (const auto &item : items) {
             if (item.getId() == id) {
                 cout << "Found: " << item.getName() << " | Qty: " << item.getQuantity() 
-                     << " | Price: $" << item.getPrice() << "\n";
+                     << " | Price: $" << fixed << setprecision(2) << item.getPrice() << "\n";
                 return;
             }
         }
